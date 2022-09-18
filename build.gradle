@@ -1,26 +1,27 @@
 // necessary to get Kotlin for Forge to work
-//buildscript {
-//    repositories {
-//        maven { url = 'https://maven.minecraftforge.net' }
-//        mavenCentral()
-//    }
-//    dependencies {
-//        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.0"
-//        // OPTIONAL Kotlin Serialization plugin
-//        classpath 'org.jetbrains.kotlin:kotlin-serialization:1.7.0'
-//    }
-//}
+buildscript {
+    repositories {
+        maven { url = 'https://maven.minecraftforge.net' }
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.0"
+        // OPTIONAL Kotlin Serialization plugin
+        classpath 'org.jetbrains.kotlin:kotlin-serialization:1.7.0'
+    }
+}
 
 plugins {
     id 'eclipse'
     id 'maven-publish'
     id 'net.minecraftforge.gradle' version '5.1.+'
     id 'org.parchmentmc.librarian.forgegradle' version '1.+'
-//    id 'kotlin'
-//    id 'kotlinx-serialization'
 }
 
-//apply from: 'https://raw.githubusercontent.com/thedarkcolour/KotlinForForge/site/thedarkcolour/kotlinforforge/gradle/kff-3.7.1.gradle'
+apply plugin: 'kotlin'
+apply plugin: 'kotlinx-serialization'
+
+apply from: 'https://raw.githubusercontent.com/thedarkcolour/KotlinForForge/site/thedarkcolour/kotlinforforge/gradle/kff-3.7.1.gradle'
 
 version = '1.0.0'
 group = 'ca.teamdman.geoscopes' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
@@ -28,9 +29,6 @@ archivesBaseName = 'geoscopes-1.19.2'
 
 // Mojang ships Java 17 to end users in 1.18+, so your mod should target Java 17.
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
-//compileKotlin {
-//    kotlinOptions.jvmTarget = "17"
-//}
 
 println "Java: ${System.getProperty 'java.version'}, JVM: ${System.getProperty 'java.vm.version'} (${System.getProperty 'java.vendor'}), Arch: ${System.getProperty 'os.arch'}"
 minecraft {
@@ -163,6 +161,10 @@ dependencies {
     // For more info...
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "17"
 }
 
 // Example for how to get properties into the manifest for reading at runtime.
