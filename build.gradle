@@ -28,9 +28,9 @@ archivesBaseName = 'geoscopes-1.19.2'
 
 // Mojang ships Java 17 to end users in 1.18+, so your mod should target Java 17.
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
-compileKotlin {
-    kotlinOptions.jvmTarget = "17"
-}
+//compileKotlin {
+//    kotlinOptions.jvmTarget = "17"
+//}
 
 println "Java: ${System.getProperty 'java.version'}, JVM: ${System.getProperty 'java.vm.version'} (${System.getProperty 'java.vendor'}), Arch: ${System.getProperty 'os.arch'}"
 minecraft {
