@@ -20,7 +20,7 @@ plugins {
 //    id 'kotlinx-serialization'
 }
 
-apply from: 'https://raw.githubusercontent.com/thedarkcolour/KotlinForForge/site/thedarkcolour/kotlinforforge/gradle/kff-3.7.1.gradle'
+//apply from: 'https://raw.githubusercontent.com/thedarkcolour/KotlinForForge/site/thedarkcolour/kotlinforforge/gradle/kff-3.7.1.gradle'
 
 version = '1.0.0'
 group = 'ca.teamdman.geoscopes' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
